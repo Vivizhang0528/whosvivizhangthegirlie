@@ -11,6 +11,20 @@
 </head>
 <body>
 
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Floating top nav (visible after hero scrolls) -->
+  <nav id="top-nav" aria-label="Page sections">
+    <span class="top-nav-name">Vivi Zhang</span>
+    <div class="top-nav-pills">
+      <a class="top-nav-pill" href="#achievements">Achievements</a>
+      <a class="top-nav-pill" href="#experience">Experience</a>
+      <a class="top-nav-pill" href="#education">Education</a>
+      <a class="top-nav-pill" href="#contact">Contact</a>
+    </div>
+  </nav>
+
   <!-- Floating bubble particles (canvas) -->
   <canvas id="particles"></canvas>
 
@@ -37,13 +51,12 @@
         </h1>
 
         <p class="hero-intro">
-          Hey—good to connect. I'm someone who loves chasing new angles and seeing what's possible.
-          I care a lot about content and design, and I bring a global lens to products—how they feel,
-          who they're for, and how they travel across cultures.<br/><br/>
-          My background is in digital marketing and the internet space; I've spent years turning ideas
-          into things people actually use and share. Off the clock I used to be an unofficial jazz / R&amp;B
-          singer—still that energy in how I work and collaborate. I'm big on outdoors, people, and good conversation.<br/><br/>
-          If any of that resonates, say hi—I'm always up for making something a little wild happen.
+          I'm someone who chases new angles and turns them into things people actually use and share.
+          My background spans digital marketing, content, and growth — with a global lens on how
+          products feel, who they're for, and how they travel across cultures.<br/><br/>
+          Most recently: ProductHunt #1 launch, 13 viral posts at 1M+ reach, and co-founding a
+          startup that reached 10,000+ people. Currently wrapping up my B.A. at OUC (985) before
+          heading to HK. Always up for making something a little wild happen — say hi.
         </p>
 
         <!-- 2 × 2 bubble grid -->
@@ -60,11 +73,31 @@
             <span class="b-glyph">❋</span>
             <span class="b-label">Education</span>
           </button>
-          <button class="nav-bubble" data-target="hobby" style="--delay:1.8s">
-            <span class="b-glyph">✿</span>
-            <span class="b-label">Hobbies</span>
+          <button class="nav-bubble" data-target="contact" style="--delay:1.8s">
+            <span class="b-glyph">✉</span>
+            <span class="b-label">Contact</span>
           </button>
         </nav>
+
+        <!-- Hero social row -->
+        <!-- TODO: Update these URLs with Vivi's actual social handles before publishing -->
+        <div class="hero-social">
+          <a href="https://instagram.com/vivizhang0528" target="_blank" rel="noopener" class="hero-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/vivizhang0528" target="_blank" rel="noopener" class="hero-social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://x.com/vivizhang0528" target="_blank" rel="noopener" class="hero-social-btn" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://facebook.com/vivizhang0528" target="_blank" rel="noopener" class="hero-social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@vivizhang0528" target="_blank" rel="noopener" class="hero-social-btn" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+          </a>
+        </div>
       </div>
 
       <!-- RIGHT: portrait photo -->
@@ -103,6 +136,16 @@
           <span class="stat-num">3.72</span>
           <span class="stat-lbl">GPA · 985 Uni</span>
         </div>
+      </div>
+
+      <!-- Open-to badges -->
+      <div class="open-to-strip">
+        <span class="open-to-label">Open to</span>
+        <span class="open-to-pill">Marketing</span>
+        <span class="open-to-pill">Growth</span>
+        <span class="open-to-pill">Content</span>
+        <span class="open-to-pill">Product</span>
+        <span class="open-to-pill">HK / Overseas / Remote</span>
       </div>
 
       <h3 class="sub-heading">Awards & Honors</h3>
@@ -263,44 +306,76 @@
     </div>
   </section>
 
-  <!-- ====== HOBBIES ====== -->
-  <section id="hobby" class="page-section">
-    <div class="sec-bg">
-      <img src="assets/vivi.jpg" alt="" aria-hidden="true" class="sec-photo" />
-      <div class="sec-overlay" style="--tint:rgba(70,95,50,0.52)"></div>
-    </div>
-    <div class="sec-inner">
-      <h2 class="sec-title">Hobbies &amp; Life</h2>
-      <div class="hobby-grid">
-        <div class="glass-card hobby-card">
-          <span class="hobby-icon">📸</span>
-          <h3>Photography &amp; Film</h3>
-          <p>Analog film photography, capturing candid moments and city life across Taiwan, Qingdao, Beijing, and beyond.</p>
-        </div>
-        <div class="glass-card hobby-card">
-          <span class="hobby-icon">✍️</span>
-          <h3>Content Creation</h3>
-          <p>Writing viral articles, building personal media, and crafting stories that resonate — from WeChat essays to overseas social reels.</p>
-        </div>
-        <div class="glass-card hobby-card">
-          <span class="hobby-icon">🌏</span>
-          <h3>Language &amp; Culture</h3>
-          <p>English enthusiast and cross-cultural bridge-builder. Currently picking up Cantonese in preparation for Hong Kong life.</p>
-        </div>
-        <div class="glass-card hobby-card">
-          <span class="hobby-icon">🎭</span>
-          <h3>Performing Arts</h3>
-          <p>Stage production, cultural performances, and large-scale event planning with OUC Art Troupe — including a CCTV-archived gala.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ====== CONTACT ====== -->
   <section id="contact" class="page-section contact-section">
     <div class="sec-inner contact-inner">
       <h2 class="sec-title">Let's Connect</h2>
       <p class="contact-sub">Open to opportunities in HK, overseas, or remote.<br/>Marketing &nbsp;·&nbsp; Growth &nbsp;·&nbsp; Content &nbsp;·&nbsp; Product</p>
+
+      <!-- Beyond-work hobby grid (condensed) -->
+      <div class="beyond-work">
+        <div class="glass-card hobby-card">
+          <span class="hobby-icon">📸</span>
+          <h3>Photography &amp; Film</h3>
+          <p>Analog film, city life across Taiwan, Qingdao &amp; Beijing.</p>
+        </div>
+        <div class="glass-card hobby-card">
+          <span class="hobby-icon">✍️</span>
+          <h3>Content Creation</h3>
+          <p>Viral articles, personal media &amp; cross-platform storytelling.</p>
+        </div>
+        <div class="glass-card hobby-card">
+          <span class="hobby-icon">🌏</span>
+          <h3>Language &amp; Culture</h3>
+          <p>Cross-cultural bridge-builder; picking up Cantonese for HK life.</p>
+        </div>
+        <div class="glass-card hobby-card">
+          <span class="hobby-icon">🎭</span>
+          <h3>Performing Arts</h3>
+          <p>Stage production &amp; CCTV-archived gala with OUC Art Troupe.</p>
+        </div>
+      </div>
+
+      <!-- Social platforms -->
+      <!-- TODO: Update these URLs with Vivi's actual social handles before publishing -->
+      <div class="social-links">
+        <!-- Instagram -->
+        <a href="https://instagram.com/vivizhang0528" target="_blank" rel="noopener" class="social-btn social-btn--instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/vivizhang0528" target="_blank" rel="noopener" class="social-btn social-btn--linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <!-- X / Twitter -->
+        <a href="https://x.com/vivizhang0528" target="_blank" rel="noopener" class="social-btn social-btn--x" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://facebook.com/vivizhang0528" target="_blank" rel="noopener" class="social-btn social-btn--facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@vivizhang0528" target="_blank" rel="noopener" class="social-btn social-btn--tiktok" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/>
+          </svg>
+        </a>
+      </div>
+      <!-- NOTE: Update social URLs above with Vivi's actual usernames before publishing -->
+
       <div class="contact-links">
         <a href="mailto:zhangwenwei0528@163.com" class="ghost-btn">zhangwenwei0528@163.com</a>
         <a href="https://github.com/Vivizhang0528" target="_blank" rel="noopener" class="ghost-btn">GitHub</a>
