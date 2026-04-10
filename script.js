@@ -349,3 +349,43 @@ sections.forEach(s => {
     next();
   });
 })();
+
+
+// ============================================================
+// 8. ENVELOPE INTRO
+// ============================================================
+(function () {
+  const intro = document.getElementById('env-intro');
+  const env   = document.getElementById('envelope');
+  const flap  = document.getElementById('env-flap');
+  const seal  = document.getElementById('wax-seal');
+  if (!intro || !seal) return;
+
+  // Lock scroll while intro is visible
+  document.body.style.overflow = 'hidden';
+
+  seal.addEventListener('click', function () {
+    if (seal.classList.contains('breaking')) return;
+
+    // 1. Crack the seal
+    seal.classList.add('breaking');
+
+    // 2. Flap lifts open
+    setTimeout(() => { flap.classList.add('open'); }, 320);
+
+    // 3. Envelope floats away upward
+    setTimeout(() => { env.classList.add('is-exiting'); }, 760);
+
+    // 4. Overlay fades to transparent
+    setTimeout(() => {
+      intro.style.opacity = '0';
+      intro.style.pointerEvents = 'none';
+    }, 1060);
+
+    // 5. Remove overlay + restore scroll
+    setTimeout(() => {
+      intro.remove();
+      document.body.style.overflow = '';
+    }, 2000);
+  });
+})();
