@@ -195,12 +195,12 @@ revealTargets.forEach(el => revealObs.observe(el));
 
 
 // ============================================================
-// 5. HERO PARALLAX
+// 5. HERO BG PARALLAX (background blur image only)
 // ============================================================
-const heroPhoto = document.querySelector('.hero-photo');
+const heroBgImg = document.querySelector('.hero-bg-img');
 window.addEventListener('scroll', () => {
   const sy = window.pageYOffset;
-  if (sy < window.innerHeight * 1.2) {
-    heroPhoto.style.transform = `scale(1.06) translateY(${sy * 0.28}px)`;
+  if (heroBgImg && sy < window.innerHeight * 1.2) {
+    heroBgImg.style.transform = `scale(1.08) translateY(${sy * 0.22}px)`;
   }
 }, { passive: true });

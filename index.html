@@ -19,40 +19,60 @@
 
   <!-- ====== HERO ====== -->
   <section id="hero">
-    <div class="hero-bg">
-      <img src="assets/vivi.jpg" alt="Vivi Zhang" class="hero-photo" />
-      <div class="hero-overlay"></div>
+    <!-- Blurred photo as background -->
+    <div class="hero-bg-wrap" aria-hidden="true">
+      <img src="assets/vivi.jpg" alt="" class="hero-bg-img" />
+      <div class="hero-bg-overlay"></div>
     </div>
 
-    <div class="hero-center">
-      <p class="hero-eyebrow">Hello, I'm</p>
-      <h1 class="hero-name">
-        Vivi Zhang
-        <span class="hero-zh">张文维</span>
-      </h1>
-      <p class="hero-tagline">English Major &nbsp;·&nbsp; Global Marketer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; ENFJ</p>
-      <p class="hero-scroll-hint">↓ tap a bubble to explore ↓</p>
-    </div>
+    <!-- Split layout: left text+bubbles / right photo -->
+    <div class="hero-split">
 
-    <!-- Four floating nav bubbles -->
-    <nav class="bubble-nav" aria-label="Section navigation">
-      <button class="nav-bubble" data-target="achievements" style="--delay:0s">
-        <span class="b-glyph">✦</span>
-        <span class="b-label">Achievements</span>
-      </button>
-      <button class="nav-bubble" data-target="experience" style="--delay:1.2s">
-        <span class="b-glyph">◈</span>
-        <span class="b-label">Experience</span>
-      </button>
-      <button class="nav-bubble" data-target="education" style="--delay:0.5s">
-        <span class="b-glyph">❋</span>
-        <span class="b-label">Education</span>
-      </button>
-      <button class="nav-bubble" data-target="hobby" style="--delay:1.8s">
-        <span class="b-glyph">✿</span>
-        <span class="b-label">Hobbies</span>
-      </button>
-    </nav>
+      <!-- LEFT -->
+      <div class="hero-left">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">
+          Vivi Zhang
+          <span class="hero-zh">张文维</span>
+        </h1>
+
+        <p class="hero-intro">
+          A 21-year-old English major at Ocean University of China (985),
+          exchange scholar at National Tsing Hua University in Taiwan,
+          and incoming postgrad in Hong Kong. I live at the crossroads of
+          language, culture, and growth — building audiences, launching products,
+          and connecting people across borders. ENFJ · AI productivity enthusiast · storyteller.
+        </p>
+
+        <!-- 2 × 2 bubble grid -->
+        <nav class="bubble-nav" aria-label="Section navigation">
+          <button class="nav-bubble" data-target="achievements" style="--delay:0s">
+            <span class="b-glyph">✦</span>
+            <span class="b-label">Achievements</span>
+          </button>
+          <button class="nav-bubble" data-target="experience" style="--delay:1.2s">
+            <span class="b-glyph">◈</span>
+            <span class="b-label">Experience</span>
+          </button>
+          <button class="nav-bubble" data-target="education" style="--delay:0.5s">
+            <span class="b-glyph">❋</span>
+            <span class="b-label">Education</span>
+          </button>
+          <button class="nav-bubble" data-target="hobby" style="--delay:1.8s">
+            <span class="b-glyph">✿</span>
+            <span class="b-label">Hobbies</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- RIGHT: portrait photo -->
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="assets/vivi.jpg" alt="Vivi Zhang" class="hero-photo" />
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- ====== ACHIEVEMENTS ====== -->
