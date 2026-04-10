@@ -72,7 +72,6 @@ const BF_COLORS = ['#f0b8c4','#b8d4f0','#c5e0b0','#f9e0b8','#d8b8f0'];
 let bfId = 0;
 
 function makeBfSvg(c) {
-  const c2 = c + 'bb';  // semi-transparent lower wings
   return `<svg viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
     <g class="bfwing">
       <!-- left upper -->
@@ -203,7 +202,7 @@ const scrollProgress = document.getElementById('scroll-progress');
 const topNav = document.getElementById('top-nav');
 
 window.addEventListener('scroll', () => {
-  const sy = window.pageYOffset;
+  const sy = window.scrollY;
 
   // Parallax
   if (heroBgImg && sy < window.innerHeight * 1.2) {
@@ -259,6 +258,10 @@ const sectionObs = new IntersectionObserver((entries) => {
       // Active top nav pill
       Object.values(pillMap).forEach(p => p.classList.remove('active'));
       if (pillMap[id]) pillMap[id].classList.add('active');
+    } else {
+      // Clear stale active state when section leaves viewport
+      if (bubbleMap[id]) bubbleMap[id].classList.remove('active');
+      if (pillMap[id])   pillMap[id].classList.remove('active');
     }
   });
 }, { threshold: 0.35 });

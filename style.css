@@ -766,14 +766,8 @@ body {
 }
 
 /* ============================================================
-   HOBBIES (base card styles — reused in beyond-work)
+   HOBBY CARDS (reused in beyond-work contact grid)
    ============================================================ */
-.hobby-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 20px;
-}
-
 .hobby-card {
   padding: 28px 22px;
   text-align: center;
