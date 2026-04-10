@@ -1,6 +1,7 @@
 /* ============================================================
    VIVI ZHANG · script.js
-   — Particles, Butterflies, Bubble Nav, Scroll Reveal, Parallax
+   — Particles, Butterflies, Bubble Nav, Scroll Reveal, Parallax,
+     Scroll Progress, Top Nav, Active Section Tracking
    ============================================================ */
 
 // ============================================================
@@ -195,12 +196,74 @@ revealTargets.forEach(el => revealObs.observe(el));
 
 
 // ============================================================
-// 5. HERO BG PARALLAX (background blur image only)
+// 5. HERO BG PARALLAX + SCROLL PROGRESS + TOP NAV REVEAL
 // ============================================================
 const heroBgImg = document.querySelector('.hero-bg-img');
+const scrollProgress = document.getElementById('scroll-progress');
+const topNav = document.getElementById('top-nav');
+
 window.addEventListener('scroll', () => {
   const sy = window.pageYOffset;
+
+  // Parallax
   if (heroBgImg && sy < window.innerHeight * 1.2) {
     heroBgImg.style.transform = `scale(1.08) translateY(${sy * 0.22}px)`;
   }
+
+  // Scroll progress
+  if (scrollProgress) {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct  = docH > 0 ? (sy / docH) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+  }
+
+  // Top nav reveal
+  if (topNav) {
+    if (sy > window.innerHeight * 0.8) {
+      topNav.classList.add('visible');
+    } else {
+      topNav.classList.remove('visible');
+    }
+  }
 }, { passive: true });
+
+
+// ============================================================
+// 6. ACTIVE NAV TRACKING (bubble nav + top nav pills)
+// ============================================================
+const sections = [
+  { id: 'achievements', label: 'achievements' },
+  { id: 'experience',   label: 'experience'   },
+  { id: 'education',    label: 'education'    },
+  { id: 'contact',      label: 'contact'      },
+];
+
+const bubbleMap = {};
+document.querySelectorAll('.nav-bubble[data-target]').forEach(btn => {
+  bubbleMap[btn.dataset.target] = btn;
+});
+
+const pillMap = {};
+document.querySelectorAll('.top-nav-pill').forEach(pill => {
+  const href = pill.getAttribute('href');
+  if (href && href.startsWith('#')) pillMap[href.slice(1)] = pill;
+});
+
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const id = entry.target.id;
+    if (entry.isIntersecting) {
+      // Active bubble
+      Object.values(bubbleMap).forEach(b => b.classList.remove('active'));
+      if (bubbleMap[id]) bubbleMap[id].classList.add('active');
+      // Active top nav pill
+      Object.values(pillMap).forEach(p => p.classList.remove('active'));
+      if (pillMap[id]) pillMap[id].classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+
+sections.forEach(s => {
+  const el = document.getElementById(s.id);
+  if (el) sectionObs.observe(el);
+});
