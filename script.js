@@ -270,3 +270,82 @@ sections.forEach(s => {
   const el = document.getElementById(s.id);
   if (el) sectionObs.observe(el);
 });
+
+
+// ============================================================
+// 7. POLAROID STACK — throw-card cycling
+// ============================================================
+(function () {
+  const stack = document.getElementById('polaroid-stack');
+  if (!stack) return;
+
+  const cards = Array.from(stack.querySelectorAll('.polaroid'));
+  const n     = cards.length;
+  const SLOTS = ['polaroid--active', 'polaroid--behind-1', 'polaroid--behind-2'];
+
+  // queue[0] = index of the front card
+  let queue = cards.map((_, i) => i);
+  let busy  = false;
+
+  function applyClasses(skipIdx = -1) {
+    queue.forEach((cardIdx, slot) => {
+      if (cardIdx === skipIdx) return;
+      cards[cardIdx].className =
+        'polaroid' + (slot < SLOTS.length ? ' ' + SLOTS[slot] : '');
+    });
+  }
+
+  function next() {
+    if (busy) return;
+    busy = true;
+
+    const exitIdx = queue[0];
+
+    // Fly the front card out
+    cards[exitIdx].classList.add('polaroid--exit');
+
+    // Rotate queue: [0,1,2] → [1,2,0]
+    queue = [...queue.slice(1), queue[0]];
+
+    // Smoothly transition the remaining cards to their new positions
+    applyClasses(exitIdx);
+
+    // After exit animation, snap the thrown card to behind-2 (invisible under stack)
+    setTimeout(() => {
+      const card = cards[exitIdx];
+      card.style.transition = 'none';
+      const slot = queue.indexOf(exitIdx);
+      card.className = 'polaroid' + (slot < SLOTS.length ? ' ' + SLOTS[slot] : '');
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        card.style.transition = '';
+        busy = false;
+      }));
+    }, 440);
+  }
+
+  function prev() {
+    if (busy) return;
+    busy = true;
+    // Pull last card to front: [0,1,2] → [2,0,1]
+    queue = [queue[n - 1], ...queue.slice(0, n - 1)];
+    applyClasses();
+    setTimeout(() => { busy = false; }, 520);
+  }
+
+  applyClasses();
+
+  // Click anywhere on stack (not on nav) → next
+  stack.addEventListener('click', (e) => {
+    if (e.target.closest('.polaroid-nav')) return;
+    next();
+  });
+
+  stack.querySelector('.pol-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    prev();
+  });
+  stack.querySelector('.pol-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    next();
+  });
+})();
