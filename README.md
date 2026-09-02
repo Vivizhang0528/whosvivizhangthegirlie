@@ -1,3 +1,3 @@
 # whosvivizhangthegirlie
 Vivi Zhang's Personal CV in Web Version
-Thank you for take a Look<333
+Thank you for taking a Look<333
